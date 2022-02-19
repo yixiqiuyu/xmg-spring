@@ -1,0 +1,3 @@
+# Project exclude paths
+/ioc-container-overview/target/
+/spring-bean/target/
