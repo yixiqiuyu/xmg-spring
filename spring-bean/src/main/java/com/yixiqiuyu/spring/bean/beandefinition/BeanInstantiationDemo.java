@@ -23,6 +23,9 @@ public class BeanInstantiationDemo {
         System.out.println(userByInstanceMethod);
         System.out.println(user == userByInstanceMethod);
 
+        User userByFactoryBean = applicationContext.getBean("user-by-factory-bean", User.class);
+        System.out.println(userByFactoryBean);
+        System.out.println(user == userByFactoryBean);
         /*User user1 = applicationContext.getBean("user-by-static-method", User.class);
         System.out.println(user1);*/
 
