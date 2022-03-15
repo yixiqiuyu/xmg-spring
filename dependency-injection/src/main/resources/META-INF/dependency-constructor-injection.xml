@@ -10,6 +10,6 @@
 
    <import resource="classpath:/META-INF/dependency-lookup.xml" />
    <bean class="com.yixiqiuyu.dependency.injection.UserHolder">
-      <property name="user" ref="superUser"/>
+      <constructor-arg name="user" ref="superUser"/>
    </bean>
 </beans>

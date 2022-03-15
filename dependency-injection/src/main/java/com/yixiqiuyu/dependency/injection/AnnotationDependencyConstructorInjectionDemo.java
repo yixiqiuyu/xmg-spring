@@ -1,23 +1,22 @@
 package com.yixiqiuyu.dependency.injection;
 
 import com.yixiqiuyu.spring.overview.domain.User;
-import org.springframework.beans.factory.support.DefaultListableBeanFactory;
 import org.springframework.beans.factory.xml.XmlBeanDefinitionReader;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 import org.springframework.context.annotation.Bean;
 
 /**
  * @author yixiqiuyu
- * @Description 基于java注解的依赖 Setter 方法注入
+ * @Description 基于java注解的依赖 Constructor 方法注入
  * @Date 2022/3/9 20:40
  */
-public class AnnotationDependencySetterInjectionDemo {
+public class AnnotationDependencyConstructorInjectionDemo {
     public static void main(String[] args) {
         // 创建BeanFactory容器
         AnnotationConfigApplicationContext applicationContext = new AnnotationConfigApplicationContext();
 
         // 注册 Configuration Class(配置类)
-        applicationContext.register(AnnotationDependencySetterInjectionDemo.class );
+        applicationContext.register(AnnotationDependencyConstructorInjectionDemo.class );
         //applicationContext.register(Config.class);
 
         XmlBeanDefinitionReader xmlBeanDefinitionReader = new XmlBeanDefinitionReader(applicationContext);
@@ -38,9 +37,6 @@ public class AnnotationDependencySetterInjectionDemo {
 
     @Bean
     public UserHolder userHolder(User user) {
-        UserHolder userHolder = new UserHolder();
-        userHolder.setUser(user);
-        return userHolder;
-        //return new UserHolder(user);
+        return new UserHolder(user);
     }
 }

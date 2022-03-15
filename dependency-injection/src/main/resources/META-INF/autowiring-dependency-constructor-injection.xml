@@ -9,7 +9,7 @@
         https://www.springframework.org/schema/context/spring-context.xsd">
 
    <import resource="classpath:/META-INF/dependency-lookup.xml" />
-   <bean class="com.yixiqiuyu.dependency.injection.UserHolder">
-      <property name="user" ref="superUser"/>
+   <bean class="com.yixiqiuyu.dependency.injection.UserHolder" autowire="constructor">
+      <!--<property name="user" ref="superUser"/>-->
    </bean>
 </beans>
