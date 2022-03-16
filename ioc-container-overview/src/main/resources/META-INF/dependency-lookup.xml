@@ -11,6 +11,15 @@
     <bean id="user" class="com.yixiqiuyu.spring.overview.domain.User">
         <property name="id" value="1"/>
         <property name="name" value="yixiqiuyu"/>
+        <property name="city" value="BEIJING"/>
+        <property name="workCities" value="BEIJING,SHANGHAI"/>
+        <property name="lifeCities">
+            <list>
+                <value>BEIJING</value>
+                <value>HANGZHOU</value>
+            </list>
+        </property>
+        <property name="configFileLocation" value="classpath:/META-INF/config-location.properties"/>
     </bean>
     <bean id="superUser" class="com.yixiqiuyu.spring.overview.domain.SuperUser" parent="user" primary="true">
         <property name="address" value="beijing"/>
