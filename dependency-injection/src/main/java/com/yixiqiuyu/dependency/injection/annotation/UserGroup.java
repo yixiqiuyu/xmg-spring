@@ -1,4 +1,4 @@
-package com.yixiqiuyu.dependency.injection;
+package com.yixiqiuyu.dependency.injection.annotation;
 
 import org.springframework.beans.factory.annotation.Qualifier;
 

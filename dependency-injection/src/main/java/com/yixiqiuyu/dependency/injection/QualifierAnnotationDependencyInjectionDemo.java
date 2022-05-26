@@ -1,5 +1,6 @@
 package com.yixiqiuyu.dependency.injection;
 
+import com.yixiqiuyu.dependency.injection.annotation.UserGroup;
 import com.yixiqiuyu.spring.overview.domain.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;

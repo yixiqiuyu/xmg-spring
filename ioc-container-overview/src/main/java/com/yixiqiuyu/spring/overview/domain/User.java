@@ -1,8 +1,11 @@
 package com.yixiqiuyu.spring.overview.domain;
 
 import com.yixiqiuyu.spring.overview.enums.City;
+import org.springframework.beans.factory.BeanNameAware;
 import org.springframework.core.io.Resource;
 
+import javax.annotation.PostConstruct;
+import javax.annotation.PreDestroy;
 import java.util.Arrays;
 import java.util.List;
 
@@ -12,10 +15,16 @@ import java.util.List;
  * @Date: 2022/2/9  20:22
  */
 
-public class User {
+
+public class User implements BeanNameAware {
     private Long id;
     private String name;
     private City city;
+
+    /**
+     * 当前bean的名称
+     */
+    private transient String beanName;
 
     private City[] workCities;
 
@@ -85,5 +94,21 @@ public class User {
 
     public static User createUser() {
         return new User();
+    }
+
+
+    @PostConstruct
+    public void init() {
+        System.out.println("User Bean[" + beanName +"]初始化");
+    }
+
+    @PreDestroy
+    public void destroy() {
+        System.out.println("User Bean[" + beanName +"]销毁中");
+    }
+
+    @Override
+    public void setBeanName(String beanName) {
+        this.beanName = beanName;
     }
 }
