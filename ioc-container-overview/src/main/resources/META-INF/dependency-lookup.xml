@@ -8,6 +8,8 @@
         http://www.springframework.org/schema/context
         https://www.springframework.org/schema/context/spring-context.xsd">
 
+    <!--RootBeanDefinition 不需要合并，不存在Parent-->
+
     <bean id="user" class="com.yixiqiuyu.spring.overview.domain.User">
         <property name="id" value="1"/>
         <property name="name" value="yixiqiuyu"/>
@@ -21,6 +23,8 @@
         </property>
         <property name="configFileLocation" value="classpath:/META-INF/config-location.properties"/>
     </bean>
+    <!--普通BeanDefinition GenericBeanDefinition-->
+    <!--合并后 GenericBeanDefinition 变成 RootBeanDefinition，并且覆盖 parent相关配置-->
     <bean id="superUser" class="com.yixiqiuyu.spring.overview.domain.SuperUser" parent="user" primary="true">
         <property name="address" value="beijing"/>
     </bean>
